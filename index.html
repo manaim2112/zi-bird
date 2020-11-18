@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bird ZI</title>
+  </head>
+  <style>
+    .arrow {
+      position: fixed;
+      width: 100px;
+    }
+    #arrowLeft {
+      bottom: 100px;
+      right: 190px; 
+      transform: rotate(90deg);
+    }
+    #arrowRight {
+      bottom: 100px;
+      right: 10px;
+      transform: rotate(-90deg);
+    }
+    #arrowTop {
+      bottom: 180px;
+      right: 100px;
+      transform: scaleY(-1);
+    }
+    #arrowBottom {
+      bottom: 20px;
+      right: 100px;
+    }
+  </style>
+  <body>
+   <img src="./images/bird.png" alt="" id="bird" srcset="" style="position:fixed; bottom:0px;left:0px;">
+   
+   <div>
+     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAwgAAAMIBT4kc1wAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACASURBVDiN1dOxDcIwEEDRf2QtOqgYIx0gyIgRsyCxA00+zVEgMIodGiy5839XWBcqS85qUf0LIIAtsG7sLwA3wMZ77YA7sGuYLjCQvzBUTp6AXgX1iZxr4xcgkVNN/AYkcpwbfwQSOcyJi0Ai+wyLsUp824WI2ACTOhbf/P8yPQAoP83ZkoVsJgAAAABJRU5ErkJggg==" alt="" srcset="" class="arrow" id="arrowLeft">
+     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAwgAAAMIBT4kc1wAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACASURBVDiN1dOxDcIwEEDRf2QtOqgYIx0gyIgRsyCxA00+zVEgMIodGiy5839XWBcqS85qUf0LIIAtsG7sLwA3wMZ77YA7sGuYLjCQvzBUTp6AXgX1iZxr4xcgkVNN/AYkcpwbfwQSOcyJi0Ai+wyLsUp824WI2ACTOhbf/P8yPQAoP83ZkoVsJgAAAABJRU5ErkJggg==" alt="" srcset="" class="arrow" id="arrowRight">
+     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAwgAAAMIBT4kc1wAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACASURBVDiN1dOxDcIwEEDRf2QtOqgYIx0gyIgRsyCxA00+zVEgMIodGiy5839XWBcqS85qUf0LIIAtsG7sLwA3wMZ77YA7sGuYLjCQvzBUTp6AXgX1iZxr4xcgkVNN/AYkcpwbfwQSOcyJi0Ai+wyLsUp824WI2ACTOhbf/P8yPQAoP83ZkoVsJgAAAABJRU5ErkJggg==" alt="" srcset="" class="arrow" id="arrowTop">
+     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAwgAAAMIBT4kc1wAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACASURBVDiN1dOxDcIwEEDRf2QtOqgYIx0gyIgRsyCxA00+zVEgMIodGiy5839XWBcqS85qUf0LIIAtsG7sLwA3wMZ77YA7sGuYLjCQvzBUTp6AXgX1iZxr4xcgkVNN/AYkcpwbfwQSOcyJi0Ai+wyLsUp824WI2ACTOhbf/P8yPQAoP83ZkoVsJgAAAABJRU5ErkJggg==" alt="" srcset="" class="arrow" id="arrowBottom">
+   </div>
+    <script>
+      let width = (window.screen.availWidth/2)+'px';
+      let height = (window.screen.availHeight/2)+'px';
+      
+      document.getElementById('bird').style.bottom = height;
+      document.getElementById('bird').style.left = width;
+      window.addEventListener('keyup', handleCursor,  false);
+      window.addEventListener('keydown', handleCursor,  false);
+      function handleBird(kode) {
+        console.log(kode);
+        let scale = 24;
+        switch(kode) {
+          case 37 : 
+              value = + document.getElementById('bird').style.left.split('px')[0];
+              value -= scale;
+              document.getElementById('bird').style.left = value+'px';
+              document.getElementById('bird').style.transform = 'initial';
+              document.getElementById('bird').style.transform = 'scaleX(-1)';
+          break;
+          case 39 :
+              value = + document.getElementById('bird').style.left.split('px')[0];
+              value += scale;
+              document.getElementById('bird').style.left = value+'px';
+              document.getElementById('bird').style.transform = 'initial';
+          break;
+          case 38 : 
+              value = + document.getElementById('bird').style.bottom.split('px')[0];
+              value += scale;
+              document.getElementById('bird').style.bottom = value+'px';
+              document.getElementById('bird').style.transform = 'initial';
+              document.getElementById('bird').style.transform = 'rotate(-90deg)';
+              
+          break;
+          case  40 : 
+              value = + document.getElementById('bird').style.bottom.split('px')[0];
+              value -= scale;
+              document.getElementById('bird').style.bottom = value+'px';
+              document.getElementById('bird').style.transform = 'initial';
+              document.getElementById('bird').style.transform = 'rotate(90deg)';
+        }
+        
+      }
+      function handleCursor(e) {
+        let value = 0;
+        
+        let audio = new Audio();
+        let s = new Audio();
+        s.src = './sounds/score.mp3';
+        audio.src = './sounds/fly.mp3';
+        audio.play();
+        console.log(e.keyCode);
+        handleBird(e.keyCode);
+
+        let getBird = [parseInt(document.getElementById('bird').style.bottom.split('px')[0]), parseInt(document.getElementById('bird').style.left.split('px')[0])];
+        let number = [parseInt(document.getElementById('number').style.bottom.split('px')[0]), parseInt(document.getElementById('number').style.left.split('px')[0])];
+        if(Math.sqrt((getBird[0]-number[0])*(getBird[0]-number[0]) + (getBird[1]-number[1])*(getBird[1]-number[1])) < 40) {
+          document.getElementById('number').remove();
+          document.getElementById('soal').remove();
+          document.querySelectorAll('#div').forEach(e => {
+            e.remove();
+          });
+          s.play();
+          game();
+        }
+        document.querySelectorAll('#div').forEach(e => {
+          let answer = document.getElementById('soal').innerText.split('+');
+          let plot = parseInt(answer[0])+parseInt(answer[1]);
+          let div = parseInt(e.innerText);
+          let position = [parseInt(e.style.bottom.split('px')[0]), parseInt(e.style.left.split('px')[0])];
+
+          if(Math.sqrt((getBird[0]-position[0])*(getBird[0]-position[0]) + (getBird[1]-position[1])*(getBird[1]-position[1])) < 40) {
+            document.getElementById('number').remove();
+            document.getElementById('soal').remove();
+            document.querySelectorAll('#div').forEach(el => {
+              el.remove();
+            });
+            if(div == plot) {
+              s.play();
+              game();
+            } else {
+              console.log(div, plot)
+              alert(`You Lose, ${div} not same ${plot}`);
+              game();
+            }
+          }
+        })
+
+      }
+    
+      function game() {
+        let color = ['rgb(94 199 255)', 'rgb(255 94 224)', 'rgb(255 225 94)', 'rgb(159 255 94)', 'rgb(94 255 200)', 'rgb(255 162 250)', 'rgb(228 228 228)'];
+        let soal  = document.createElement('div');
+        let sum = [Math.floor(Math.random()*10), Math.floor(Math.random()*10)];
+        soal.innerText = sum.join(' + ');
+        soal.style = 'position:fixed; bottom:100px; right:300px; font-size:5rem;';
+        soal.id="soal";
+
+        let div  = document.createElement('div');
+        div.innerText = sum[0]+sum[1];
+        div.style = "border-radius:50%;padding:10px 11px; background-color:"+ color[Math.floor(Math.random()*6)]+";";
+        let widthValue = (Math.floor(window.screen.availWidth/(Math.floor(Math.random()*10))));
+        let heightValue = (Math.floor(window.screen.availHeight/(Math.floor(Math.random()*10))));
+        div.style.position = 'fixed';
+        if(widthValue > window.screen.availWidth-100) {
+          widthValue = (window.screen.availWidth/2);
+        }
+        if(heightValue > window.screen.availHeight-200) {
+          heightValue = (window.screen.availHeight/2);
+        }
+        div.style.left = widthValue +'px';
+        div.style.bottom = heightValue +'px';
+        div.id  = 'number';
+                
+        let div1  = document.createElement('div');
+        let div2  = document.createElement('div');
+        let div3  = document.createElement('div');
+        let div4  = document.createElement('div');
+        let div5  = document.createElement('div');
+        let arrValue = [sum[0]-sum[1], sum[0]+sum[1]+2, sum[0]+sum[1]+10, sum[1]-sum[0], sum[1]+[0]-3];
+        div1.style = 'position:fixed;border-radius:50%;padding:10px;background-color:'+ color[Math.floor(Math.random()*6)]+';';
+        div1.style.left = (Math.floor(window.screen.availWidth/(Math.floor(Math.random()*10)))) +'px';
+        div1.style.bottom = (Math.floor(window.screen.availWidth/(Math.floor(Math.random()*10)))) +'px';
+        div1.innerText = arrValue[0];
+        div1.id ='div';
+
+        div2.style = 'position:fixed;border-radius:50%;padding:10px;background-color:'+ color[Math.floor(Math.random()*6)]+';';
+        div2.style.left = (Math.floor(window.screen.availWidth/(Math.floor(Math.random()*10)))) +'px';
+        div2.style.bottom = (Math.floor(window.screen.availWidth/(Math.floor(Math.random()*10)))) +'px';
+        div2.innerText = arrValue[1];
+        div2.id ='div';
+
+        div3.style = 'position:fixed;border-radius:50%;padding:10px;background-color:'+ color[Math.floor(Math.random()*6)]+';';
+        div3.style.left = (Math.floor(window.screen.availWidth/(Math.floor(Math.random()*10)))) +'px';
+        div3.style.bottom = (Math.floor(window.screen.availWidth/(Math.floor(Math.random()*10)))) +'px';
+        div3.innerText = arrValue[2];
+        div3.id ='div';
+
+        div4.style = 'position:fixed;border-radius:50%;padding:10px;background-color:'+ color[Math.floor(Math.random()*6)]+';';
+        div4.style.left = (Math.floor(window.screen.availWidth/(Math.floor(Math.random()*10)))) +'px';
+        div4.style.bottom = (Math.floor(window.screen.availWidth/(Math.floor(Math.random()*10)))) +'px';
+        div4.innerText = arrValue[3];
+        div4.id ='div';
+        
+        div5.style = 'position:fixed;border-radius:50%;padding:10px;background-color:'+ color[Math.floor(Math.random()*6)]+';';
+        div5.style.left = (Math.floor(window.screen.availWidth/(Math.floor(Math.random()*10)))) +'px';
+        div5.style.bottom = (Math.floor(window.screen.availWidth/(Math.floor(Math.random()*10)))) +'px';
+        div5.innerText = arrValue[4];
+        div5.id ='div';
+        
+        document.querySelector('body').appendChild(div);
+        document.querySelector('body').appendChild(div1);
+        document.querySelector('body').appendChild(div2);
+        document.querySelector('body').appendChild(div3);
+        document.querySelector('body').appendChild(div4);
+        document.querySelector('body').appendChild(div5);
+        document.querySelector('body').appendChild(soal);
+
+       
+      
+      }
+
+      
+      game();
+      document.getElementById('arrowLeft').addEventListener('click', e => handleCursor({keyCode : 37}));
+        document.getElementById('arrowRight').addEventListener('click', e => handleCursor({keyCode : 39}));
+        document.getElementById('arrowTop').addEventListener('click', e => handleCursor({keyCode : 38}));
+        document.getElementById('arrowBottom').addEventListener('click', e=> handleCursor({keyCode : 40}));
+      document.getElementById('arrowLeft').addEventListener('mousedown', e => handleCursor({keyCode : 37}));
+        document.getElementById('arrowRight').addEventListener('mousedown', e => handleCursor({keyCode : 39}));
+        document.getElementById('arrowTop').addEventListener('mousedown', e => handleCursor({keyCode : 38}));
+        document.getElementById('arrowBottom').addEventListener('mousedown', e=> handleCursor({keyCode : 40}));
+    </script>
+  </body>
+</html>
